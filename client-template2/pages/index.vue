@@ -92,7 +92,7 @@ export default {
     return {
       slide: 0,
       sliding: null,
-      mobile:true,
+      mobile:false,
     };
   },
   methods: {
