@@ -1,0 +1,128 @@
+<template>
+  <div>
+    <header>
+      <b-navbar id="heder-estilos" class="header-padrao" toggleable="lg">
+        <b-navbar-brand @click="alteraMarcacao()">
+          <NuxtLink to="/">
+            <img width="25%" src="~/assets/icones/imagem.png" alt="Logotipo" /><span
+              class="logotipo-cor"
+              >Logotipo</span
+            >
+          </NuxtLink>
+        </b-navbar-brand>
+
+        <b-navbar-toggle target="nav-collapse" />
+
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav id="nav-bar-links-topo" class="ml-auto">
+            <NuxtLink
+              v-for="(headerOp, index) in headerOpcoes"
+              :key="index"
+              :to="headerOp.rota"
+            >
+              <li>
+                <h5 :id="`nav-opcao` + index" @click="alteraMarcacao(index)">
+                  {{ headerOp.titulo }}
+                </h5>
+              </li>
+            </NuxtLink>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
+    </header>
+    <main><Nuxt /></main>
+    <footer>
+      <div id="footer-default-grid" class="cor-fundo-secundaria p-5">
+        <div class="ml-3">
+          <div class="text-left">
+            <img width="15%" src="~/assets/icones/imagem.png" alt="" />
+            <span class="logotipo-cor">Logotipo</span>
+          </div>
+          <NuxtLink
+            class="text-left"
+            v-for="(headerOp, index) in headerOpcoes"
+            :key="index"
+            :to="headerOp.rota"
+            @click="alteraMarcacao(index)"
+          >
+            <h5 :id="`nav-opcao` + index">
+              {{ headerOp.titulo }}
+            </h5>
+          </NuxtLink>
+        </div>
+        <div class="mr-3">
+          <ListaInformativa :contato="dadosCadastrais" />
+          <img
+            class="float-right"
+            width="15%"
+            src="~/assets/icones/logo_sharkdata.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="container py-3">
+        2021 (c) Nome da empresa todos os direito reservadis
+      </div>
+    </footer>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters({
+      headerOpcoes: "conteudo/headerOpcoes",
+      dadosCadastrais: "conteudo/dadosCadastrais",
+    }),
+  },
+  mounted() {
+    const nav = this.headerOpcoes.find((elemnt) => elemnt.rota === this.$route.name);
+    console.log(nav);
+    if (nav !== undefined) {
+      $("#nav-opcao" + nav.id).css({
+        "border-left": "14px solid black",
+        "border-radius": "10px",
+      });
+    } else
+      $("#nav-opcao" + 0).css({
+        "border-left": "14px solid black",
+        "border-radius": "10px",
+      });
+  },
+  methods: {
+    alteraMarcacao(e) {
+      for (let index = 0; index < this.headerOpcoes.length; index++) {
+        $("#nav-opcao" + index).css({ "border-left": "none", "border-radius": "10px" });
+      }
+      if (e === undefined) {
+        $("#nav-opcao" + 0).css({
+          "border-left": "14px solid black",
+          "border-radius": "10px",
+        });
+        return;
+      }
+      $("#nav-opcao" + e).css({
+        "border-left": "14px solid black",
+        "border-radius": "10px",
+      });
+    },
+  },
+};
+</script>
+<style>
+#heder-estilos {
+  background: var(--cor-padrao-header-fundo);
+}
+#nav-bar-links-topo li {
+  margin-right: 30px;
+  font-family: "Abel";
+  color: var(--cor-padrao-header-fonte);
+}
+#footer-default-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 100%;
+}
+</style>
