@@ -115,7 +115,7 @@ export default {
 }
 .nav-bar-opcao-li :hover{
   transition: 0.3s;
-  background: red;
+  opacity: 80%;
 }
 .circulo-marcacao-pagination {
   -webkit-border-radius: 8px;
