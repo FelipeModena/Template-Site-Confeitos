@@ -93,6 +93,8 @@
       >
     </div>
     <FormsContato
+    class="my-4 cor-fundo-forms py-3"
+    id="index-forms-contato"
       :ativo="index.forms.ativo"
       :listaIputs="index.forms.inputs"
       :mensagem="index.forms.mensagem"
