@@ -123,7 +123,12 @@ a:hover {
   background: #0e87bc;
   border: none;
   padding: 9px;
+  transition: 0.4s;
   width: 100%;
+}
+.btn-azul:hover, .btn-transparente-primaria:hover,.btn-transparente-secundaria:hover,.btn-azul-form {
+  opacity: 80%;
+  transition: 0.4s;
 }
 .btn-transparente-primaria{
   color: var(--cor-secundaria-fonte);
