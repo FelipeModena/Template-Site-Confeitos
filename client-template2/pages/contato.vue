@@ -1,11 +1,5 @@
 <template>
   <div class="px-4 my-4 cor-fundo-primaria">
-    <h1 class="ml-5">
-      <strong
-        >Faca seu orçamento<br />
-        online</strong
-      >
-    </h1>
     <div class="row">
       <FormsContato
       id="contato-forms-contato"
