@@ -56,9 +56,11 @@
         </div>
       </div>
 
-      <div class="container py-3">
+      <div class="container py-3" style="display:grid">
+        <div class="centraliza">
+        <img  width="60%" src="~/assets/icones/logo_sharkdata.png" alt="" />
+        </div>
         2021 (c) Nome da empresa todos os direito reservadis
-        <img class="ml-3" width="10%" src="~/assets/icones/logo_sharkdata.png" alt="" />
       </div>
     </footer>
   </div>
