@@ -14,13 +14,14 @@
         <b-navbar-toggle target="nav-collapse" />
 
         <b-collapse id="nav-collapse" is-nav>
-          <b-navbar-nav id="nav-bar-links-topo" class="ml-auto">
+          <b-navbar-nav id="nav-bar-links-topo"  class="ml-auto ">
             <NuxtLink
               v-for="(headerOp, index) in headerOpcoes"
               :key="index"
               :to="headerOp.rota"
             >
-              <li>
+              <li class="nav-bar-opcao-li">
+            <i :id="`nav-opcao-italico-` + index"></i>
                 <h5 :id="`nav-opcao` + index" @click="alteraMarcacao(index)">
                   {{ headerOp.titulo }}
                 </h5>
@@ -81,32 +82,22 @@ export default {
     const nav = this.headerOpcoes.find((elemnt) => elemnt.rota === this.$route.name);
     console.log(nav);
     if (nav !== undefined) {
-      $("#nav-opcao" + nav.id).css({
-        "border-left": "14px solid black",
-        "border-radius": "10px",
-      });
+      $("#nav-opcao-italico-" + nav.id).addClass('circulo-marcacao-pagination');
     } else
-      $("#nav-opcao" + 0).css({
-        "border-left": "14px solid black",
-        "border-radius": "10px",
-      });
+      $("#nav-opcao-italico-" + 0).addClass('circulo-marcacao-pagination');
   },
   methods: {
     alteraMarcacao(e) {
+       console.log( $("#nav-opcao-italico-" + e).children());
+       console.log( $("#nav-opcao-italico-" + e));
       for (let index = 0; index < this.headerOpcoes.length; index++) {
-        $("#nav-opcao" + index).css({ "border-left": "none", "border-radius": "10px" });
+        $("#nav-opcao-italico-" + index).removeClass('circulo-marcacao-pagination');
       }
       if (e === undefined) {
-        $("#nav-opcao" + 0).css({
-          "border-left": "14px solid black",
-          "border-radius": "10px",
-        });
+        $("#nav-opcao-italico-" + 0).addClass('circulo-marcacao-pagination');
         return;
       }
-      $("#nav-opcao" + e).css({
-        "border-left": "14px solid black",
-        "border-radius": "10px",
-      });
+      $("#nav-opcao-italico-" + e).addClass('circulo-marcacao-pagination');
     },
   },
 };
@@ -124,5 +115,17 @@ export default {
   display: grid;
   grid-template-columns: auto auto;
   width: 100%;
+}
+.nav-bar-opcao-li{
+  display:flex;
+}
+.circulo-marcacao-pagination{
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    border-radius:8px;
+    background:var(--cor-padrao-header-fonte);
+    margin: 8px 3px 0 0 ;
+    width:8px;
+    height:8px;
 }
 </style>
