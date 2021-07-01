@@ -2,7 +2,7 @@
   <div>
     <b-carousel
     v-if="mobile!=true"
-      id="carousel-1"
+      id="carousel-index-banner"
       v-model="slide"
       :interval="3000"
       controls
@@ -30,7 +30,6 @@
             <div class="p-4 my-5 index-carousel-conteudo-texto">
               <h1>{{ listaCarousel.texto }}</h1>
               <NuxtLink :to="listaCarousel.rota"
-                ><button class="btn-caraousel-cor">
                   visiste nossa Galeria
                 </button></NuxtLink
               >
@@ -126,6 +125,10 @@ export default {
 </script>
 
 <style>
+#carousel-index-banner .carousel-control-prev-icon, .carousel-control-next-icon{
+width: 25%;
+height: 100%;
+}
 .relative-container-carousel {
   position: relative;
   text-align: center;
@@ -133,7 +136,7 @@ export default {
 .relative-container-carousel div {
   position: absolute;
   top: 8px;
-  left: 50px;
+  left: 90px;
   width: 400px;
   height: 500px;
 }
@@ -152,7 +155,6 @@ export default {
   width: 70%;
 }
 .btn-caraousel-cor :hover {
-  opacity: 40%;
   transition: 0.4s;
 }
 #index-grid-book-imagens {
