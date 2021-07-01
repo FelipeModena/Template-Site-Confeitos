@@ -29,14 +29,12 @@ export default {
   },
   mounted() {
     if (document.documentElement.clientWidth <= 1030) {
-      console.log("mobile laytou");
         $(".lista-imagens-componente-mobile-id").addClass('lista-imagens-componente-mobile').removeClass('d-flex p-2');
     }
 
     addEventListener("resize", () => {
       if (document.documentElement.clientWidth <= 1030) {
         $(".lista-imagens-componente-mobile-id").addClass('lista-imagens-componente-mobile').removeClass('d-flex p-2');
-        console.log("mobile laytou");
       } else {
         $(".lista-imagens-componente-mobile-id").addClass('d-flex p-2').removeClass('lista-imagens-componente-mobile');
 

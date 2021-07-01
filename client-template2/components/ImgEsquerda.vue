@@ -24,14 +24,12 @@ export default {
   },
       mounted() {
     if (document.documentElement.clientWidth <= 1200) {
-      console.log("mobile laytou");
         $(".img-esquerda-componente-id").addClass('d-flex-inline ').removeClass('d-flex ');
     }
 
     addEventListener("resize", () => {
       if (document.documentElement.clientWidth <= 1200) {
         $(".img-esquerda-componente-id").addClass('d-flex-inline ').removeClass('d-flex ');
-        console.log("mobile laytou");
       } else {
         $(".img-esquerda-componente-id").addClass('d-flex ').removeClass('d-flex-inline ');
 
