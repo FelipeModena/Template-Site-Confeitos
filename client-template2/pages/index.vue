@@ -150,7 +150,7 @@ export default {
 .relative-container-carousel div {
   position: absolute;
   top: 8px;
-  left: 90px;
+  left: 110px;
   width: 400px;
   height: 500px;
 }
