@@ -1,6 +1,6 @@
 <template>
   <div v-if="mobile==false">
-    <div class="my-4 py-3 text-center" v-if="ativo === true" :class="fundoColorido">
+    <div class=" text-center" v-if="ativo === true" :class="fundoColorido">
       <h2><strong>Faça seu orçamento online</strong></h2>
       <div v-for="input in listaIputs" :key="input" class="mt-4 index-forms">
         <label class="text-left" :for="input"
