@@ -85,16 +85,32 @@
         height="290x"
         :src="require('~/assets/imagens/' + foto)"
         :alt="foto.img"
+        @click="showImgInModal(foto)"
       />
     </div>
+    <b-modal
+      id="modal-imagens-componente-tamanho"
+      title="oie"
+      :hide-header="true"
+      :hide-footer="true"
+      :busy="true"
+    >
+      <img
+        class="img-fluid"
+        width="400px"
+        :src="'/_nuxt/assets/imagens/' + imgEscolhidaModal"
+        alt=""
+      />
+    </b-modal>
+
     <div class="centraliza my-4">
       <NuxtLink to="nossosProdutos"
         ><button class="btn-azul-form">Visite nossa galeria</button></NuxtLink
       >
     </div>
     <FormsContato
-    class="my-4 cor-fundo-forms py-3"
-    id="index-forms-contato"
+      class="my-4 cor-fundo-forms py-3"
+      id="index-forms-contato"
       :ativo="index.forms.ativo"
       :listaIputs="index.forms.inputs"
       :mensagem="index.forms.mensagem"
@@ -117,6 +133,7 @@ export default {
       slide: 0,
       sliding: null,
       mobile: false,
+      imgEscolhidaModal: "tortinha.jpg",
     };
   },
   methods: {
@@ -126,23 +143,27 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
+    showImgInModal(foto) {
+      this.imgEscolhidaModal = foto;
+      this.$bvModal.show('modal-imagens-componente-tamanho');
+    },
   },
   mounted() {
     if (document.documentElement.clientWidth <= 850) {
       $(".mobile-display").css("display", "list-item");
-      $("#index-img-esquerda-banner").css("display", "list-item");
+      $("#index-img-esquerda-banner").removeClass("d-flex");
       this.mobile = true;
     }
 
     addEventListener("resize", () => {
       if (document.documentElement.clientWidth <= 850) {
         $(".mobile-display-img").css("width", "100%");
-      $("#index-img-esquerda-banner").css("display", "list-item");
+        $("#index-img-esquerda-banner").removeClass("d-flex");
         $(".mobile-display").css("display", "list-item");
         this.mobile = true;
       } else {
         $(".mobile-display-img").css("width", "400px");
-      $("#index-img-esquerda-banner").css("display", "flex");
+        $("#index-img-esquerda-banner").addClass("d-flex");
         $(".mobile-display").css("display", "flex");
         this.mobile = false;
       }
