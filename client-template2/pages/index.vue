@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-carousel
-    v-if="mobile!=true"
+      v-if="mobile != true"
       id="carousel-index-banner"
       v-model="slide"
       :interval="3000"
@@ -30,6 +30,7 @@
             <div class="p-4 my-5 index-carousel-conteudo-texto">
               <h1>{{ listaCarousel.texto }}</h1>
               <NuxtLink :to="listaCarousel.rota"
+                ><button class="btn-caraousel-cor">
                   visiste nossa Galeria
                 </button></NuxtLink
               >
@@ -38,7 +39,20 @@
         </template>
       </b-carousel-slide>
     </b-carousel>
-  <img v-else class="w-100" :src="require('~/assets/imagens/'+index.carouselTopo[0].img)" alt="">
+    <div v-else>
+      <img
+        class="w-100"
+        :src="require('~/assets/imagens/' + index.carouselTopo[0].img)"
+        alt=""
+      />
+      <div class="  index-carousel-conteudo-texto centraliza">
+        <h1><strong>{{ index.carouselTopo[0].texto }}</strong></h1>
+        <NuxtLink class="mt-5 " :to="index.carouselTopo[0].rota"
+          ><button class="btn-caraousel-cor">visiste nossa Galeria</button></NuxtLink
+        >
+      </div>
+    </div>
+
     <TextoCentralizado
       :titulo="index.conteudo1.titulo"
       :texto="index.conteudo1.texto"
@@ -46,7 +60,7 @@
     />
 
     <ImgEsquerda
-    class="cor-fundo-secundaria p-3"
+      class="cor-fundo-secundaria p-3"
       :id="'img-esquerda-nossos-produtos' + index.conteudo3.titulo"
       :conteudoTxt="index.conteudo3.texto"
       :titulo="index.conteudo3.titulo"
@@ -91,7 +105,7 @@ export default {
     return {
       slide: 0,
       sliding: null,
-      mobile:false,
+      mobile: false,
     };
   },
   methods: {
@@ -105,19 +119,18 @@ export default {
   mounted() {
     if (document.documentElement.clientWidth <= 850) {
       $(".mobile-display").css("display", "list-item");
-      this.mobile=true;
+      this.mobile = true;
     }
 
     addEventListener("resize", () => {
       if (document.documentElement.clientWidth <= 850) {
         $(".mobile-display-img").css("width", "100%");
         $(".mobile-display").css("display", "list-item");
-      this.mobile=true;
+        this.mobile = true;
       } else {
         $(".mobile-display-img").css("width", "400px");
         $(".mobile-display").css("display", "flex");
-      this.mobile=false;
-        
+        this.mobile = false;
       }
     });
   },
@@ -125,9 +138,10 @@ export default {
 </script>
 
 <style>
-#carousel-index-banner .carousel-control-prev-icon, .carousel-control-next-icon{
-width: 25%;
-height: 100%;
+#carousel-index-banner .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 25%;
+  height: 100%;
 }
 .relative-container-carousel {
   position: relative;
@@ -152,10 +166,12 @@ height: 100%;
   transition: 0.4s;
   border: 2px solid #890d00;
   padding: 12px;
-  width: 70%;
+  width: 100%;
 }
 .btn-caraousel-cor :hover {
   transition: 0.4s;
+  background: #3a24bb;
+  width: 80%;
 }
 #index-grid-book-imagens {
   display: grid;
