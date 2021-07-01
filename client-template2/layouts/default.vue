@@ -23,7 +23,7 @@
               <li class="nav-bar-opcao-li">
                 <i :id="`nav-opcao-italico-` + index"></i>
                 <h5 :id="`nav-opcao` + index" @click="alteraMarcacao(index)">
-                  {{ headerOp.titulo }}
+                  <strong>{{ headerOp.titulo }}</strong>
                 </h5>
               </li>
             </NuxtLink>
@@ -109,6 +109,11 @@ export default {
 }
 .nav-bar-opcao-li {
   display: flex;
+  transition: 0.3s;
+}
+.nav-bar-opcao-li :hover{
+  transition: 0.3s;
+  opacity: 80%;
 }
 .circulo-marcacao-pagination {
   -webkit-border-radius: 8px;
