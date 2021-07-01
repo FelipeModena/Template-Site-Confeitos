@@ -35,8 +35,8 @@ export const state = () => ({
             texto: 'Pequeno texto sobre a empresa, ou sobre qualquer coisa na verdade, esse site é apenas um exemplo e pode ser adaptado a qualquer outra com áreas de atuação distintas. Trocando cores e inganes tudo  e possivel! É interessante deixaros texto da pagtina inicial curtos e sucientos, apresnetar seu negocio, sua  area de atuação. Exsitem páginas internas onde é posivel detalhar mais as coisas'
         },
         conteudo3:{
-            titulo: 'Nossa historia',
-            texto: 'Pequeno texto sobre a empresa, ou sobre qualquer coisa na verdade, esse site é apenas um exemplo e pode ser adaptado a qualquer outra com áreas de atuação distintas. Trocando cores e inganes tudo  e possivel! É interessante deixaros texto da pagtina inicial curtos e sucientos, apresnetar seu negocio, sua  area de atuação. Exsitem páginas internas onde é posivel detalhar mais as coisas',
+            titulo: 'Bolos decorados e muito mais',
+            texto: 'Doces especiais para momentos únicos! Conheça todos nossos produts e peça um orçamento hoje mesmo.',
             img:'tortaColorida.jpg'
         },
         conteudo2: ['tortaMaca.jpg', 'boloCremeMorango.jpg', 'boloChocoBranco.jpg', 'cupcake.jpg',
