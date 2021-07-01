@@ -37,7 +37,7 @@ export const state = () => ({
         conteudo3:{
             titulo: 'Bolos decorados e muito mais',
             texto: 'Doces especiais para momentos únicos! Conheça todos nossos produts e peça um orçamento hoje mesmo.',
-            img:'tortaColorida.jpg'
+            img:'ex-08.jpg'
         },
         conteudo2: ['tortaMaca.jpg', 'boloCremeMorango.jpg', 'boloChocoBranco.jpg', 'cupcake.jpg',
             'boloBarbie.jpg', 'tortinha.jpg', 'tortaCreme.jpg', 'colecaoCupcake.jpg',
