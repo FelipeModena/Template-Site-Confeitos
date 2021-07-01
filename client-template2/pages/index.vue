@@ -45,9 +45,11 @@
         :src="require('~/assets/imagens/' + index.carouselTopo[0].img)"
         alt=""
       />
-      <div class="  index-carousel-conteudo-texto centraliza">
-        <h1><strong>{{ index.carouselTopo[0].texto }}</strong></h1>
-        <NuxtLink class="mt-5 " :to="index.carouselTopo[0].rota"
+      <div class="index-carousel-conteudo-texto centraliza">
+        <h1>
+          <strong>{{ index.carouselTopo[0].texto }}</strong>
+        </h1>
+        <NuxtLink class="mt-5" :to="index.carouselTopo[0].rota"
           ><button class="btn-caraousel-cor">visiste nossa Galeria</button></NuxtLink
         >
       </div>
@@ -58,16 +60,23 @@
       :texto="index.conteudo1.texto"
       :btnRota="true"
     />
-
-    <ImgEsquerda
-      class="cor-fundo-secundaria p-3"
-      :id="'img-esquerda-nossos-produtos' + index.conteudo3.titulo"
-      :conteudoTxt="index.conteudo3.texto"
-      :titulo="index.conteudo3.titulo"
-      :img="index.conteudo3.img"
-      :btnRota="'nossosProdutos'"
-    />
-
+    <div class="d-flex px-2 py-5" id="index-img-esquerda-banner">
+      <img
+        class="ml-3"
+        width="600px"
+        :src="require('~/assets/imagens/' + index.conteudo3.img)"
+        alt=""
+      />
+      <div class="p-4 mt-5">
+        <h1>
+          <strong>{{ index.conteudo3.titulo }}</strong>
+        </h1>
+        <p>{{ index.conteudo3.texto }}</p>
+        <NuxtLink to="nossosProdutos'"
+          ><button class="btn-azul-form">Saiba mais</button></NuxtLink
+        >
+      </div>
+    </div>
     <div class="my-4" id="index-grid-book-imagens">
       <img
         v-for="(foto, index) in index.conteudo2"
@@ -119,16 +128,19 @@ export default {
   mounted() {
     if (document.documentElement.clientWidth <= 850) {
       $(".mobile-display").css("display", "list-item");
+      $("#index-img-esquerda-banner").css("display", "list-item");
       this.mobile = true;
     }
 
     addEventListener("resize", () => {
       if (document.documentElement.clientWidth <= 850) {
         $(".mobile-display-img").css("width", "100%");
+      $("#index-img-esquerda-banner").css("display", "list-item");
         $(".mobile-display").css("display", "list-item");
         this.mobile = true;
       } else {
         $(".mobile-display-img").css("width", "400px");
+      $("#index-img-esquerda-banner").css("display", "flex");
         $(".mobile-display").css("display", "flex");
         this.mobile = false;
       }
@@ -172,6 +184,11 @@ export default {
   transition: 0.4s;
   background: #3a24bb;
   width: 80%;
+}
+
+#index-img-esquerda-banner {
+  background: var(--cor-padrao-header-fundo);
+  color: var(--cor-form-fonte);
 }
 #index-grid-book-imagens {
   display: grid;
