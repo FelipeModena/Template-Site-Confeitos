@@ -46,7 +46,7 @@ export const state = () => ({
     },
     quemSomos: {
         bannerSuperior: {
-            img: 'boloBanner.jpg'
+            img: 'topo-quemsomos.jpg'
         },
         conteudo1: {
             titulo: 'Nossa historia',
