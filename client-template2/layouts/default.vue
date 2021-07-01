@@ -19,10 +19,11 @@
               v-for="(headerOp, index) in headerOpcoes"
               :key="index"
               :to="headerOp.rota"
+              
             >
-              <li class="nav-bar-opcao-li">
+              <li class="nav-bar-opcao-li" @click="alteraMarcacao(index)">
                 <i :id="`nav-opcao-italico-` + index"></i>
-                <h5 :id="`nav-opcao` + index" @click="alteraMarcacao(index)">
+                <h5 :id="`nav-opcao` + index" >
                   <strong>{{ headerOp.titulo }}</strong>
                 </h5>
               </li>
@@ -83,6 +84,7 @@ export default {
   },
   methods: {
     alteraMarcacao(e) {
+      console.log(e);
       for (let index = 0; index < this.headerOpcoes.length; index++) {
         $("#nav-opcao-italico-" + index).removeClass("circulo-marcacao-pagination");
       }
