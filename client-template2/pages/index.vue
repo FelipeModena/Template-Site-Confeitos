@@ -80,6 +80,7 @@
     <div class="my-4" id="index-grid-book-imagens">
       <img
         v-for="(foto, index) in index.conteudo2"
+        class="index-lista-grid-imagens-foto"
         :key="index"
         width="100%"
         height="290x"
@@ -90,7 +91,6 @@
     </div>
     <b-modal
       id="modal-imagens-componente-tamanho"
-      title="oie"
       :hide-header="true"
       :hide-footer="true"
       :busy="true"
@@ -145,7 +145,7 @@ export default {
     },
     showImgInModal(foto) {
       this.imgEscolhidaModal = foto;
-      this.$bvModal.show('modal-imagens-componente-tamanho');
+      this.$bvModal.show("modal-imagens-componente-tamanho");
     },
   },
   mounted() {
@@ -216,5 +216,15 @@ export default {
 #index-grid-book-imagens {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
+}
+.index-lista-grid-imagens-foto {
+  transition: 0.4s;
+}
+.index-lista-grid-imagens-foto :hover {
+  transition: 0.4s;
+  opacity: 30%;
+  background: green;
+  border: red;
+  width: 400px;
 }
 </style>

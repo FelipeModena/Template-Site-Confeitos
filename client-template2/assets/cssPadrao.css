@@ -127,7 +127,7 @@ a:hover {
   width: 100%;
 }
 .btn-azul:hover, .btn-transparente-primaria:hover,.btn-transparente-secundaria:hover,.btn-azul-form {
-  opacity: 80%;
+  opacity: 60%;
   transition: 0.4s;
 }
 .btn-transparente-primaria{
